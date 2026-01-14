@@ -298,13 +298,13 @@
         }
 
         .leaflet-popup-content {
-            margin: 0;
-            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            width: auto !important;
         }
 
         .popup-content {
-            padding: 1.5rem;
-            padding-bottom: 1rem;  /* 下のパディングを削減 */
+            padding: 1rem 1.2rem 0.8rem 1.2rem;  /* 上 右 下 左 */
         }
 
         .popup-title {
@@ -312,12 +312,12 @@
             font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
         }
 
         .popup-description {
             color: var(--text-muted);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
             line-height: 1.6;
             font-size: 0.9rem;
         }
@@ -341,8 +341,9 @@
         
         /* YouTubeタイトル */
         .youtube-title-text {
-            margin-top: 4px;
-            margin-bottom: 0;  /* 下のマージンを削除 */
+            margin-top: 6px;
+            margin-bottom: 0;
+            padding-bottom: 0;
             font-size: 9.75px;  /* 13px × 0.75 = 9.75px */
             color: #374151;
             line-height: 1.3;  /* 行間を詰める */
@@ -1524,10 +1525,13 @@
             `;
             
             marker.bindPopup(popupContent, {
-                maxWidth: 300,
+                maxWidth: 320,
+                minWidth: 250,
                 className: 'custom-popup',
                 autoClose: true,
-                closeOnClick: true
+                closeOnClick: true,
+                autoPan: true,
+                autoPanPadding: [10, 10]
             });
             
             // ピンの下に学校名を表示（常時表示のツールチップ）
@@ -2301,4 +2305,4 @@
         });
     </script>
 </body>
-</html>　
+</html>
